@@ -394,6 +394,12 @@ a:hover { text-decoration-color: var(--link-green); }
           </button>
         </li>
         <li>
+          <button onclick="openTab(event,'special-issues')" aria-controls="special-issues" aria-selected="false">
+            Special Issues
+            <span class="count">5+</span>
+          </button>
+        </li>
+        <li>
           <button onclick="openTab(event,'books-chapters')" aria-controls="books-chapters" aria-selected="false">
             Books &amp; Chapters
             <span class="count">12+</span>
@@ -401,7 +407,7 @@ a:hover { text-decoration-color: var(--link-green); }
         </li>
         <li>
           <button onclick="openTab(event,'opinions-reports')" aria-controls="opinions-reports" aria-selected="false">
-            Opinions &amp; Reports
+            Others
             <span class="count">10+</span>
           </button>
         </li>
@@ -415,11 +421,11 @@ a:hover { text-decoration-color: var(--link-green); }
     <!-- CONTENT -->
     <div class="content-area">
 
-      <!-- ── JOURNAL ARTICLES ─────────────────────────────────────── -->
-      <div id="journals" class="tab-content active">
+      <!-- ── SPECIAL ISSUES ───────────────────────────────────────── -->
+      <div id="special-issues" class="tab-content">
 
         <div class="category-block">
-          <h2 class="category-heading">Edited Special Issues</h2>
+          <h2 class="category-heading">Special Issues</h2>
 
           <div class="year-group">
             <span class="year-label">In Progress</span>
@@ -433,6 +439,11 @@ a:hover { text-decoration-color: var(--link-green); }
             <div class="pub-entry">Park, W., &amp; Erduran, S. (2025) (Eds.). <strong>Argumentation and the problem of misinformation in science education</strong>. Topical collection of <em>Research in Science Education</em>. <br><a href="https://link.springer.com/collections/jfjieedgbd" class="pub-link" target="_blank">https://link.springer.com/collections/jfjieedgbd</a></div>
           </div>
         </div>
+
+      </div><!-- /special-issues -->
+
+      <!-- ── JOURNAL ARTICLES ─────────────────────────────────────── -->
+      <div id="journals" class="tab-content active">
 
         <div class="category-block">
           <h2 class="category-heading">Articles</h2>
