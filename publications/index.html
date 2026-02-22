@@ -222,6 +222,7 @@ a:hover { text-decoration-color: var(--link-green); }
   background: rgba(0,0,0,.12);
   padding: .1em .5em;
   border-radius: 2px;
+  margin-left: 8px; /* Added base spacing */
 }
 .sidebar-tabs li button.active .count { background: rgba(255,255,255,.2); }
 
@@ -337,6 +338,7 @@ a:hover { text-decoration-color: var(--link-green); }
   .sidebar-tabs { display: flex; flex-wrap: wrap; }
   .sidebar-tabs li { flex: 1 1 auto; }
   .sidebar-tabs li button { border-right: 1px solid var(--border-warm); justify-content: center; }
+  .sidebar-tabs li button .count { margin-left: 12px; } /* Increased space for narrow mode */
   .header-inner { height: auto; padding: .75rem 24px; flex-direction: column; align-items: flex-start; gap: .5rem; }
   .site-nav ul { flex-wrap: wrap; }
 }
@@ -346,7 +348,6 @@ a:hover { text-decoration-color: var(--link-green); }
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<!-- HEADER -->
 <header class="site-header">
   <div class="header-inner">
     <a href="/" class="site-logo">
@@ -362,7 +363,6 @@ a:hover { text-decoration-color: var(--link-green); }
   </div>
 </header>
 
-<!-- PAGE TITLE -->
 <div class="page-title-band">
   <div class="page-title-inner">
     <h1>Publications</h1>
@@ -370,7 +370,6 @@ a:hover { text-decoration-color: var(--link-green); }
   </div>
 </div>
 
-<!-- BREADCRUMB -->
 <div class="breadcrumb-bar" aria-label="Breadcrumb">
   <div class="inner">
     <a href="/">Home</a>
@@ -379,11 +378,9 @@ a:hover { text-decoration-color: var(--link-green); }
   </div>
 </div>
 
-<!-- MAIN LAYOUT -->
 <main id="main-content">
   <div class="main-wrapper">
 
-    <!-- SIDEBAR NAVIGATION -->
     <aside class="sidebar" aria-label="Publication categories">
       <div class="sidebar-heading">Publication Type</div>
       <ul class="sidebar-tabs">
@@ -424,10 +421,8 @@ a:hover { text-decoration-color: var(--link-green); }
       </div>
     </aside>
 
-    <!-- CONTENT -->
     <div class="content-area">
 
-      <!-- ── SPECIAL ISSUES ───────────────────────────────────────── -->
       <div id="special-issues" class="tab-content">
 
         <div class="category-block">
@@ -446,10 +441,7 @@ a:hover { text-decoration-color: var(--link-green); }
           </div>
         </div>
 
-      </div><!-- /special-issues -->
-
-      <!-- ── JOURNAL ARTICLES ─────────────────────────────────────── -->
-      <div id="journals" class="tab-content active">
+      </div><div id="journals" class="tab-content active">
 
         <div class="category-block">
           <h2 class="category-heading">Articles</h2>
@@ -517,10 +509,7 @@ a:hover { text-decoration-color: var(--link-green); }
           </div>
         </div>
 
-      </div><!-- /journals -->
-
-      <!-- ── BOOKS & CHAPTERS ─────────────────────────────────────── -->
-      <div id="books-chapters" class="tab-content">
+      </div><div id="books-chapters" class="tab-content">
 
         <div class="category-block">
           <h2 class="category-heading">Books</h2>
@@ -564,10 +553,7 @@ a:hover { text-decoration-color: var(--link-green); }
           </div>
         </div>
 
-      </div><!-- /books-chapters -->
-
-      <!-- ── OPINIONS & REPORTS ───────────────────────────────────── -->
-      <div id="opinions-reports" class="tab-content">
+      </div><div id="opinions-reports" class="tab-content">
 
         <div class="category-block">
           <h2 class="category-heading">Opinions and Practitioner Pieces</h2>
@@ -617,10 +603,7 @@ a:hover { text-decoration-color: var(--link-green); }
           </div>
         </div>
 
-      </div><!-- /opinions-reports -->
-
-      <!-- ── IN PROGRESS ───────────────────────────────────── -->
-      <div id="in-progress" class="tab-content">
+      </div><div id="in-progress" class="tab-content">
 
         <div class="category-block">
           <h2 class="category-heading">In Progress</h2>
@@ -651,13 +634,8 @@ a:hover { text-decoration-color: var(--link-green); }
           </div>
         </div>
 
-      </div><!-- /in-progress -->
+      </div></div></div></main>
 
-    </div><!-- /content-area -->
-  </div><!-- /main-wrapper -->
-</main>
-
-<!-- FOOTER -->
 <footer class="site-footer">
   &copy; 2026 Wonyong Park | University of Southampton
 </footer>
