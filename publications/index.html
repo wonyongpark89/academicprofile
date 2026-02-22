@@ -390,25 +390,25 @@ a:hover { text-decoration-color: var(--link-green); }
         <li>
           <button class="active" onclick="openTab(event,'journals')" aria-controls="journals" aria-selected="true">
             Journal Articles
-            <span class="count">30+</span>
+            <span class="count">26</span>
           </button>
         </li>
         <li>
           <button onclick="openTab(event,'special-issues')" aria-controls="special-issues" aria-selected="false">
             Special Issues
-            <span class="count">5+</span>
+            <span class="count">4</span>
           </button>
         </li>
         <li>
           <button onclick="openTab(event,'books-chapters')" aria-controls="books-chapters" aria-selected="false">
             Books &amp; Chapters
-            <span class="count">12+</span>
+            <span class="count">10</span>
           </button>
         </li>
         <li>
           <button onclick="openTab(event,'opinions-reports')" aria-controls="opinions-reports" aria-selected="false">
             Others
-            <span class="count">10+</span>
+            <span class="count">12</span>
           </button>
         </li>
       </ul>
@@ -633,6 +633,16 @@ function openTab(evt, tabName) {
   evt.currentTarget.classList.add('active');
   evt.currentTarget.setAttribute('aria-selected', 'true');
 }
+
+// Auto-calculate exact counts from .pub-entry elements in each tab
+document.querySelectorAll('.sidebar-tabs button').forEach(btn => {
+  const tabId = btn.getAttribute('aria-controls');
+  const tab = document.getElementById(tabId);
+  if (!tab) return;
+  const count = tab.querySelectorAll('.pub-entry').length;
+  const badge = btn.querySelector('.count');
+  if (badge) badge.textContent = count;
+});
 </script>
 
 </body>
