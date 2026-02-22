@@ -371,7 +371,9 @@ a:hover { text-decoration-color: var(--link-green); }
   };
 
   const extractTitle = (doc) =>
-    normaliseSpace(doc.querySelector('header h1')?.textContent || '');
+    normaliseSpace(
+      (doc.querySelector('header h1') || doc.querySelector('h1'))?.textContent || ''
+    );
 
   const extractSummaryText = (doc) => {
     const h2s = Array.from(doc.querySelectorAll('.project-content h2'));
