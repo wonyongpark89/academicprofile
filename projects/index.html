@@ -7,218 +7,341 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-:root{
-  --bg-color:#ffffff;
-  --text-main:#2d2d2d;
-  --text-light:#666666;
-  --highlight:#4f46e5;
-  --soft-gray:#f9fafb;
-  --border-color:#e5e7eb;
-  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  --card-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+/* ── Parliament Design System ─────────────────────────────────────── */
+:root {
+  --parliament-green:  #2d6a4f;
+  --parliament-dark:   #1b4332;
+  --gold:              #b08d57;
+  --gold-light:        #e8d5a3;
+  --parchment:         #f8f7f4;
+  --parchment-mid:     #f0ede6;
+  --border-warm:       #ddd8ce;
+  --text-dark:         #1c1c1c;
+  --text-mid:          #3a3a3a;
+  --text-muted:        #6b6b6b;
+  --white:             #ffffff;
+  --link-green:        #2d6a4f;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scrollbar-gutter: stable; }
 
-html{scroll-behavior:smooth; scrollbar-gutter: stable;}
-
-body{
-  font-family:'Inter',sans-serif;
-  background-color:var(--bg-color);
-  color:var(--text-main);
-  line-height:1.75;
-  max-width:1100px;
-  margin:0 auto;
-  padding:0 24px;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background-color: var(--parchment);
+  color: var(--text-dark);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
 }
 
-a{
-  color:var(--highlight);
-  text-decoration:none;
-  transition:all .2s ease;
+a {
+  color: var(--link-green);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: text-decoration-color .2s ease, color .2s ease;
+}
+a:hover { text-decoration-color: var(--link-green); }
+
+/* ── SKIP LINK ───────────────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -40px; left: 0;
+  background: var(--parliament-green);
+  color: white;
+  padding: 8px 16px;
+  font-size: .875rem;
+  z-index: 999;
+  transition: top .2s;
+}
+.skip-link:focus { top: 0; }
+
+/* ── SITE HEADER ─────────────────────────────────────────────────── */
+.site-header {
+  background-color: var(--parliament-green);
+  color: var(--white);
+  border-bottom: 4px solid var(--gold);
 }
 
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:2.5rem 0;
-  border-bottom:1px solid var(--border-color);
+.header-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  gap: 2rem;
 }
 
-.logo{
-  font-family:'Playfair Display',serif;
-  font-size:1.5rem;
-  color:var(--text-main);
-  font-weight:700;
+.site-logo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: .02em;
+  white-space: nowrap;
 }
 
-nav ul{display:flex;list-style:none;gap:2.5rem;}
-nav ul li a{
-  color:var(--text-light);
-  font-size:.95rem;
+.site-nav { display: flex; align-items: center; }
+.site-nav ul { display: flex; list-style: none; gap: 0; }
+.site-nav ul li a {
+  display: block;
+  padding: .5rem 1.1rem;
+  color: rgba(255,255,255,.85);
+  text-decoration: none;
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  border-bottom: 3px solid transparent;
+  transition: color .2s, border-color .2s, background .2s;
 }
-nav ul li a:hover,
-nav ul li a.active{
-  color:var(--highlight);
-  font-weight:600;
-}
-
-header{padding:4rem 0 3rem 0;}
-h1{
-  font-family:'Playfair Display',serif;
-  font-size:2.5rem;
-  line-height:1.15;
-}
-
-footer{
-  padding:4rem 0;
-  text-align:center;
-  border-top:1px solid var(--border-color);
-  font-size:.85rem;
-  color:#999;
-  margin-top:4rem;
+.site-nav ul li a:hover { color: var(--white); background: rgba(255,255,255,.1); }
+.site-nav ul li a.active {
+  color: var(--gold-light);
+  border-bottom-color: var(--gold);
 }
 
-/* Project grid */
-.project-list{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
-  gap:2rem;
-  margin-bottom:5rem;
+/* ── PAGE TITLE BAND ─────────────────────────────────────────────── */
+.page-title-band {
+  background-color: var(--parliament-dark);
+  color: var(--white);
+  padding: 2.5rem 24px 2rem;
+  border-bottom: 3px solid var(--gold);
 }
 
-.project-card{
-  background:#fff;
-  border:1px solid var(--border-color);
-  border-radius:12px;
-  padding:2rem;
-  display:flex;
-  flex-direction:column;
-  transition:all .3s cubic-bezier(.25,.8,.25,1);
-  box-shadow:var(--card-shadow);
-  height:100%;
+.page-title-inner {
+  max-width: 1160px;
+  margin: 0 auto;
 }
 
-.project-card:hover{
-  transform:translateY(-5px);
-  box-shadow:var(--card-shadow-hover);
-  border-color:var(--highlight);
+.page-title-band h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: .01em;
+  color: var(--white);
 }
 
-.project-info{
-  display:flex;
-  flex-direction:column;
-  flex:1;
+.page-title-band .page-subtitle {
+  margin-top: .4rem;
+  font-size: 1rem;
+  color: rgba(255,255,255,.65);
+  font-family: 'Source Sans 3', sans-serif;
 }
 
-/* Meta row: funder on the left (wrapping), badge pinned to the right */
-.project-meta{
-  font-size:.75rem;
-  color:var(--highlight);
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  margin-bottom:1rem;
+/* ── BREADCRUMB ──────────────────────────────────────────────────── */
+.breadcrumb-bar {
+  background: var(--parchment-mid);
+  border-bottom: 1px solid var(--border-warm);
+  padding: .55rem 24px;
+}
+.breadcrumb-bar .inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  font-size: .8rem;
+  color: var(--text-muted);
+}
+.breadcrumb-bar a { color: var(--link-green); text-decoration: none; }
+.breadcrumb-bar a:hover { text-decoration: underline; }
+.breadcrumb-bar span { margin: 0 .4rem; }
 
-  display:flex;
-  align-items:flex-start;   /* keeps badge aligned nicely when funder wraps */
-  gap:.75rem;
+/* ── MAIN WRAPPER ────────────────────────────────────────────────── */
+.main-wrapper {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 2.5rem 24px 5rem;
 }
 
-.project-meta .meta-left{
-  flex:1 1 auto;
-  min-width:0;              /* allows wrapping within flex layouts */
-  white-space:normal;       /* allow funder to wrap */
+/* ── PROJECT GRID ────────────────────────────────────────────────── */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
 }
 
-.project-info h2{
-  font-family:'Playfair Display',serif;
-  font-size:1.5rem;
-  line-height:1.3;
-  margin-bottom:1rem;
+/* ── PROJECT CARD ────────────────────────────────────────────────── */
+.project-card {
+  background: var(--white);
+  border: 1px solid var(--border-warm);
+  border-top: 4px solid var(--parliament-green);
+  display: flex;
+  flex-direction: column;
+  transition: border-top-color .2s, box-shadow .2s, transform .2s;
 }
 
-.project-summary{
-  font-family:'Source Sans 3',sans-serif;
-  font-size:.95rem;
-  color:var(--text-light);
-  margin-bottom:1.5rem;
-  flex-grow:1;
-  display:-webkit-box;
-  -webkit-line-clamp:4;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
+.project-card:hover {
+  border-top-color: var(--gold);
+  box-shadow: 0 6px 24px rgba(0,0,0,.09);
+  transform: translateY(-3px);
 }
 
-.read-more{
-  font-weight:600;
-  font-size:.9rem;
-  color:var(--highlight);
-  margin-top:auto;
+.project-card-inner {
+  padding: 1.5rem 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-.read-more:hover{text-decoration:underline;}
+/* Meta row */
+.project-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-bottom: .85rem;
+}
+
+.project-funder {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  flex: 1;
+  line-height: 1.4;
+}
 
 /* Status badge */
-.status-badge{
-  margin-left:auto;         /* pins badge to the right edge */
-  flex:0 0 auto;            /* never shrink; never wrap */
-  white-space:nowrap;
+.status-badge {
+  flex-shrink: 0;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  padding: .2em .6em;
+  line-height: 1.3;
+  color: var(--white);
+}
+.status-live      { background: var(--parliament-green); }
+.status-completed { background: var(--text-muted); }
 
-  font-size:.65rem;
-  font-weight:700;
-  letter-spacing:.8px;
-  text-transform:uppercase;
-  padding:.25em .55em;
-  border-radius:4px;
-  line-height:1.2;
-  color:#fff;
+/* Card title */
+.project-card h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-dark);
+  margin-bottom: .85rem;
 }
 
-.status-live{background:var(--highlight);}
-.status-completed{background:#9ca3af;}
+/* Summary text */
+.project-summary {
+  font-size: .93rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+  flex-grow: 1;
+  margin-bottom: 1.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
-/* Mobile */
-@media (max-width:900px){
-  body{padding:0 18px;}
-  nav{flex-direction:column;gap:1rem;}
-  nav ul{gap:1.5rem;flex-wrap:wrap;justify-content:center;}
-  h1{font-size:2.2rem;}
-  .project-list{grid-template-columns:1fr;}
+/* Read more link */
+.card-footer {
+  border-top: 1px solid var(--border-warm);
+  padding-top: .9rem;
+  margin-top: auto;
+}
+
+.read-more {
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--parliament-green);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .3em;
+  transition: color .2s, gap .2s;
+}
+.read-more:hover { color: var(--parliament-dark); gap: .55em; }
+.read-more::after { content: '→'; }
+
+/* Loading / empty state */
+.state-message {
+  grid-column: 1 / -1;
+  color: var(--text-muted);
+  font-size: .95rem;
+  padding: 2rem 0;
+}
+
+/* ── FOOTER ──────────────────────────────────────────────────────── */
+.site-footer {
+  background: var(--parliament-dark);
+  color: rgba(255,255,255,.6);
+  border-top: 4px solid var(--gold);
+  padding: 2rem 24px;
+  text-align: center;
+  font-size: .85rem;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────── */
+@media (max-width: 820px) {
+  .header-inner { height: auto; padding: .75rem 24px; flex-direction: column; align-items: flex-start; gap: .5rem; }
+  .site-nav ul { flex-wrap: wrap; }
+  .project-list { grid-template-columns: 1fr; }
 }
   </style>
 </head>
 
 <body>
 
-  <nav>
-    <a href="/" class="logo">Wonyong Park</a>
-    <ul>
-      <li><a href="/">About</a></li>
-      <li><a href="/publications/">Publications</a></li>
-      <li><a href="/projects/" class="active">Projects</a></li>
-    </ul>
-  </nav>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header>
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Wonyong Park</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="/">About</a></li>
+        <li><a href="/publications/">Publications</a></li>
+        <li><a href="/projects/" class="active">Projects</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- PAGE TITLE -->
+<div class="page-title-band">
+  <div class="page-title-inner">
     <h1>Research Projects</h1>
-  </header>
+    <p class="page-subtitle">Current and completed research initiatives</p>
+  </div>
+</div>
 
-  <main class="project-list" id="projectList">
-    <p style="grid-column:1/-1;color:#999;">Loading projects…</p>
-  </main>
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar" aria-label="Breadcrumb">
+  <div class="inner">
+    <a href="/">Home</a>
+    <span aria-hidden="true">›</span>
+    Projects
+  </div>
+</div>
 
-  <footer>
-    &copy; 2026 Wonyong Park | University of Southampton
-  </footer>
+<!-- MAIN -->
+<main id="main-content">
+  <div class="main-wrapper">
+    <div class="project-list" id="projectList">
+      <p class="state-message">Loading projects…</p>
+    </div>
+  </div>
+</main>
 
-  <script>
+<!-- FOOTER -->
+<footer class="site-footer">
+  &copy; 2026 Wonyong Park | University of Southampton
+</footer>
+
+<script>
 (() => {
   const MAX_PROJECTS_TO_CHECK = 50;
   const listEl = document.getElementById('projectList');
@@ -237,7 +360,6 @@ footer{
     for (const item of items) {
       const label = item.querySelector('.sidebar-label');
       if (!label) continue;
-
       if (normaliseSpace(label.textContent).toLowerCase() === labelText.toLowerCase()) {
         const clone = item.cloneNode(true);
         const cloneLabel = clone.querySelector('.sidebar-label');
@@ -255,7 +377,6 @@ footer{
     const h2s = Array.from(doc.querySelectorAll('.project-content h2'));
     const summaryH2 = h2s.find(h => normaliseSpace(h.textContent).toLowerCase() === 'summary');
     if (!summaryH2) return '';
-
     const parts = [];
     let el = summaryH2.nextElementSibling;
     while (el && el.tagName.toLowerCase() !== 'h2') {
@@ -269,27 +390,25 @@ footer{
     if (!duration) return null;
     const years = duration.match(/\d{4}/g);
     if (!years || !years.length) return null;
-
     const endYear = parseInt(years[years.length - 1], 10);
-    const currentYear = new Date().getFullYear();
-    return endYear >= currentYear ? 'Live' : 'Completed';
+    return endYear >= new Date().getFullYear() ? 'Live' : 'Completed';
   };
 
   const renderCard = ({ n, title, duration, funder, summary }) => {
     const article = document.createElement('article');
     article.className = 'project-card';
 
-    const info = document.createElement('div');
-    info.className = 'project-info';
+    const inner = document.createElement('div');
+    inner.className = 'project-card-inner';
 
-    // Meta row with left text + right badge
+    // Meta row
     const meta = document.createElement('div');
     meta.className = 'project-meta';
 
-    const metaLeft = document.createElement('span');
-    metaLeft.className = 'meta-left';
-    metaLeft.textContent = funder ? funder : (duration || 'Research Project');
-    meta.appendChild(metaLeft);
+    const funderEl = document.createElement('span');
+    funderEl.className = 'project-funder';
+    funderEl.textContent = funder || duration || 'Research Project';
+    meta.appendChild(funderEl);
 
     const status = inferStatusFromDuration(duration);
     if (status) {
@@ -306,17 +425,20 @@ footer{
     p.className = 'project-summary';
     p.textContent = summary;
 
+    const cardFooter = document.createElement('div');
+    cardFooter.className = 'card-footer';
+
     const a = document.createElement('a');
     a.className = 'read-more';
     a.href = `/project${n}/`;
-    a.textContent = 'View project →';
+    a.textContent = 'View project';
 
-    info.appendChild(meta);
-    info.appendChild(h2);
-    info.appendChild(p);
-    info.appendChild(a);
-
-    article.appendChild(info);
+    cardFooter.appendChild(a);
+    inner.appendChild(meta);
+    inner.appendChild(h2);
+    inner.appendChild(p);
+    inner.appendChild(cardFooter);
+    article.appendChild(inner);
     return article;
   };
 
@@ -324,15 +446,12 @@ footer{
     const url = `/project${n}/`;
     const res = await fetch(url, { cache: 'no-store' });
     if (!res.ok) throw new Error(`Missing: ${url}`);
-
     const htmlText = await res.text();
     const doc = new DOMParser().parseFromString(htmlText, 'text/html');
-
-    const title = extractTitle(doc);
+    const title    = extractTitle(doc);
     const duration = extractSidebarValue(doc, 'Duration');
-    const funder = extractSidebarValue(doc, 'Funder');
-    const summary = firstNWords(extractSummaryText(doc), 35);
-
+    const funder   = extractSidebarValue(doc, 'Funder');
+    const summary  = firstNWords(extractSummaryText(doc), 35);
     return { n, title, duration, funder, summary };
   };
 
@@ -342,21 +461,20 @@ footer{
 
     const results = await Promise.all(checks);
     const found = results.filter(r => r.ok).map(r => r.v);
-
     found.sort((a, b) => b.n - a.n);
 
     listEl.innerHTML = '';
-    for (const proj of found) listEl.appendChild(renderCard(proj));
-
     if (found.length === 0) {
       const p = document.createElement('p');
+      p.className = 'state-message';
       p.textContent = 'No project pages found.';
-      p.style.gridColumn = "1/-1";
       listEl.appendChild(p);
+    } else {
+      for (const proj of found) listEl.appendChild(renderCard(proj));
     }
   })();
 })();
-  </script>
+</script>
 
 </body>
 </html>
