@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publications | Wonyong Park</title>
 
@@ -338,9 +338,26 @@ a:hover { text-decoration-color: var(--link-green); }
   .sidebar-tabs { display: flex; flex-wrap: wrap; }
   .sidebar-tabs li { flex: 1 1 auto; }
   .sidebar-tabs li button { border-right: 1px solid var(--border-warm); justify-content: center; }
-  .sidebar-tabs li button .count { margin-left: 12px; } /* Increased space for narrow mode */
-  .header-inner { height: auto; padding: .75rem 24px; flex-direction: column; align-items: flex-start; gap: .5rem; }
-  .site-nav ul { flex-wrap: wrap; }
+  .sidebar-tabs li button .count { margin-left: 12px; }
+
+  /* CHANGED: centre header items on narrow widths */
+  .header-inner {
+    height: auto;
+    padding: .75rem 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+  }
+
+  .site-nav {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .site-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 </style>
 </head>
